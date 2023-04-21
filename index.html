@@ -6,6 +6,7 @@
     <title>API demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/popmotion@latest/dist/popmotion.global.min.js"></script>
   </head>
 
   <body>
@@ -36,19 +37,24 @@
       <p>Icons from <a href="https://lucide.dev/">Lucide.dev</a>.</p>
     </footer>
 
-    <script>
+    <script type="module">
+      const { keyframes, styler } = popmotion;
       const form = document.getElementById('main-input');
       const input = document.getElementById('query');
+      const statusMessage = document.getElementById('status-message');
       const result = document.getElementById('result');
+      const body = document.querySelector('body');
       result.onload = () => {
         statusMessage.style.display = 'none';
+        body.style = 'animation: none;';
       };
-      const statusMessage = document.getElementById('status-message');
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
+        result.src = '';
         statusMessage.textContent = 'Loading...';
-        statusMessage.style = 'font-size: 50px;';
+        statusMessage.style = 'font-size: 50px; animation: changeBoxShadowColor 3s infinite;';
+        body.style = 'animation: changeBackgroundColor 3s infinite;';
         const query = encodeURIComponent(input.value);
         input.value = '';
         const baseURL = 'http://api.wolframalpha.com/v1/simple';

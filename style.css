@@ -9,6 +9,30 @@ html {
     box-sizing: inherit;
 }
 
+@keyframes changeBackgroundColor {
+    0% {
+        background-color: #b0df47;
+    }
+    50% {
+        background-color: #2d5e23;
+    }
+    100% {
+        background-color: #b0df47;
+    }
+}
+
+@keyframes changeBoxShadowColor {
+    0% {
+        box-shadow: 0 0 20px 20px #b0df47 inset;
+    }
+    50% {
+        box-shadow: 0 0 20px 20px #2d5e23 inset;
+    }
+    100% {
+        box-shadow: 0 0 20px 20px #b0df47 inset;
+    }
+}
+
 body {
     font-family: Arial, Geneva, sans-serif;
     background-color: #b0df47;
