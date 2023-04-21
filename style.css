@@ -1,0 +1,63 @@
+html {
+    box-sizing: border-box;
+    /* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Arial, Geneva, sans-serif;
+    background-color: #b0df47;
+}
+
+a {
+    color: #2772b0;
+}
+
+.top-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 30px;
+    display: grid;
+    grid: auto-flow / 1fr 10fr 1fr;
+    grid-gap: 10px;
+}
+
+#main-input {
+    text-align: center;
+    display: grid;
+    grid: auto-flow / 10fr 1fr;
+    grid-gap: 10px;
+}
+
+#query {
+    font-size: 20px;
+}
+
+.result-box {
+    text-align: center;
+}
+
+#status-message {
+    background-image: url("images/leaves.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 18%;
+    box-shadow: 0 0 20px 20px #b0df47 inset;
+}
+
+#leaves-image {
+    width: 70%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+}

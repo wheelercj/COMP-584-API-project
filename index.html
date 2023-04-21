@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>API demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="top-box">
+      <a href="/">
+        <img id="logo" src="images/leaf.svg" alt="leaf" height="40">
+      </a>
+      <form id="main-input">
+        <input type="text" id="query" name="input">
+        <input type="submit" value="Submit">
+      </form>
+      <a href="https://github.com/wheelercj/COMP-584-API-project">
+        <img src="images/github.svg" height="30" style="margin-left: 50px; margin-top: 5px;">
+      </a>
+    </div>
+
+    <br /><br /><br /><br /><br />
+
+    <div class="result-box">
+      <div id="status-message">
+      </div>
+      <img id="result">
+    </div>
+
+    <br /><br />
+
+    <footer>
+      <p>Icons from <a href="https://lucide.dev/">Lucide.dev</a>.</p>
+    </footer>
+
+    <script>
+      const form = document.getElementById('main-input');
+      const input = document.getElementById('query');
+      const result = document.getElementById('result');
+      result.onload = () => {
+        statusMessage.style.display = 'none';
+      };
+      const statusMessage = document.getElementById('status-message');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        statusMessage.textContent = 'Loading...';
+        statusMessage.style = 'font-size: 50px;';
+        const query = encodeURIComponent(input.value);
+        input.value = '';
+        const baseURL = 'http://api.wolframalpha.com/v1/simple';
+        const appID = 'UQVLL2-K8P5W83QP2';
+        const queryURL = `${baseURL}?appid=${appID}&i=${query}`;
+        result.src = queryURL;
+      });
+    </script>
+  </body>
+
+</html>
